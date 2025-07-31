@@ -22,7 +22,13 @@ def contar_letra(cadena, letra):
             cadena.pop(0)
             return 0 + contar_letra(cadena, letra)
 
-
+def convertir_binario(numero):
+    if numero == 0:
+        return "0"
+    elif numero == 1:
+        return "1"
+    else:
+        return convertir_binario(numero // 2) + str(numero % 2)
 def main():
     print("\n=== MENU PRINCIPAL ===")
     print("1. Calcular MCD de dos números")
@@ -58,4 +64,9 @@ def main():
 
         case "4":
             decimal = int(input("Ingrese un número: "))
+            binario = convertir_binario(decimal)
+            print("El resultado es:", binario)
+
+    main()
+
 main()
