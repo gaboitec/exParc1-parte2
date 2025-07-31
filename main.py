@@ -5,10 +5,23 @@ def calcular_mcd(a, b):
         return calcular_mcd(b, a % b)
 
 def repetir_cadena(palabra, veces):
-    if veces <= 0:
+    if veces == 0:
         return ""
     else:
-        return palabra + repetir_cadena(palabra, veces - 1)
+        return palabra + " " + repetir_cadena(palabra, veces - 1)
+
+def contar_letra(cadena, letra):
+    cadena = list(cadena)
+    if len(cadena) == 0:
+        return 0
+    else:
+        if cadena[0] == letra:
+            cadena.pop(0)
+            return 1 + contar_letra(cadena, letra)
+        else:
+            cadena.pop(0)
+            return 0 + contar_letra(cadena, letra)
+
 
 def main():
     print("\n=== MENU PRINCIPAL ===")
@@ -26,8 +39,23 @@ def main():
             b = int(input("Ingrese el segundo número: "))
             mcd = calcular_mcd(a, b)
             print(f"El MCD de {a} y {b} es: {mcd}")
+
         case "2":
-            palabra = input("Ingrese la cadena a repetir: ")
-            veces = int(input("Ingrese el número de veces que desea repetir la cadena: "))
+            palabra = input("Ingrese la palabra: ")
+            veces = int(input("Cuantas veces?: "))
             resultado = repetir_cadena(palabra, veces)
             print(f"La cadena repetida es: {resultado}")
+
+        case "3":
+            cadena = input("Ingrese la cadena: ")
+            letra = input("Ingrese la letra: ")
+            veces = contar_letra(cadena, letra)
+            palabra = "vez"
+            if veces > 1:
+                palabra = "veces"
+
+            print(f"La letra '{letra}' aparece {veces} {palabra}.")
+
+        case "4":
+            decimal = int(input("Ingrese un número: "))
+main()
