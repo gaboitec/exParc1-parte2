@@ -52,61 +52,67 @@ def main():
                 try:
                     a = int(input("Ingrese el primer número: "))
                     b = int(input("Ingrese el segundo número: "))
-                    mcd = calcular_mcd(a, b)
-                    print(f"El MCD de {a} y {b} es: {mcd}")
-                    break
+                    if a >= 0 and b >= 0:
+                        break
                 except ValueError:
                     print("Ingrese números válidos.")
+
+            mcd = calcular_mcd(a, b)
+            print(f"El MCD de {a} y {b} es: {mcd}")
 
         case "2":
             while True:
                 try:
                     palabra = input("Ingrese la palabra: ")
                     veces = int(input("Cuantas veces?: "))
-                    resultado = repetir_cadena(palabra, veces)
-                    print(f"La cadena repetida es: {resultado}")
-                    break
+                    if veces >= 0:
+                        break
                 except ValueError:
                     print("Ingrese datos validos.")
 
-        case "3":
-            while True:
-                try:
-                    cadena = input("Ingrese la cadena: ")
-                    letra = input("Ingrese la letra: ")
-                    veces = contar_letra(cadena, letra)
-                    palabra = "vez"
-                    if veces > 1:
-                        palabra = "veces"
+            resultado = repetir_cadena(palabra, veces)
+            print(f"La cadena repetida es: {resultado}")
 
-                    print(f"La letra '{letra}' aparece {veces} {palabra}.")
-                    break
-                except ValueError:
-                    print("Ingrese datos válidos.")
+        case "3":
+            cadena = input("Ingrese la cadena: ")
+            letra = input("Ingrese la letra: ")
+
+            veces = contar_letra(cadena, letra)
+
+            palabra = "vez"
+            if veces > 1:
+                palabra = "veces"
+
+            print(f"La letra '{letra}' aparece {veces} {palabra}.")
 
         case "4":
             while True:
                 try:
                     decimal = int(input("Ingrese un número: "))
-                    binario = convertir_binario(decimal)
-                    print("El resultado es:", binario)
-                    break
+                    if decimal >= 0:
+                        break
                 except ValueError:
                     print("Ingrese datos validos.")
+
+            binario = convertir_binario(decimal)
+            print("El resultado es:", binario)
 
         case "5":
             while True:
                 try:
                     numero = int(input("Ingrese un número: "))
-                    digitos = contar_digitos(numero)
-                    print(f"El número tiene {digitos} dígitos.")
-                    break
+                    if numero >= 0:
+                        break
                 except ValueError:
                     print("Ingrese un número válido.")
+
+            digitos = contar_digitos(numero)
+            print(f"El número tiene {digitos} dígitos.")
 
         case "0":
             print("Saliendo del programa...")
             exit()
+
         case _:
             print("Opción no válida. Por favor, intente de nuevo.")
 
