@@ -29,6 +29,13 @@ def convertir_binario(numero):
         return "1"
     else:
         return convertir_binario(numero // 2) + str(numero % 2)
+
+def contar_digitos(numero):
+    if numero < 10:
+        return 1
+    else:
+        return 1 + contar_digitos(numero // 10)
+
 def main():
     print("\n=== MENU PRINCIPAL ===")
     print("1. Calcular MCD de dos números")
@@ -66,6 +73,17 @@ def main():
             decimal = int(input("Ingrese un número: "))
             binario = convertir_binario(decimal)
             print("El resultado es:", binario)
+
+        case "5":
+            numero = int(input("Ingrese un número: "))
+            digitos = contar_digitos(numero)
+            print(f"El número tiene {digitos} dígitos.")
+
+        case "0":
+            print("Saliendo del programa...")
+            exit()
+        case _:
+            print("Opción no válida. Por favor, intente de nuevo.")
 
     main()
 
